@@ -55,8 +55,9 @@
         </stream>
         <stream type="notification">
             <apply effect="notification_helper"/>
-        </stream>
-        
+        </stream> 
+    </postprocess>
+    <preprocess>
         <stream type="voice_communication">
             <apply effect="aec"/>
             <apply effect="ns"/>
