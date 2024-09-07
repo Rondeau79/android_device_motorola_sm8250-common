@@ -16,7 +16,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ro.vendor.audio.sdk.fluencetype=none\
 persist.vendor.audio.fluence.voicecall=true\
 persist.vendor.audio.fluence.voicerec=false\
-persist.vendor.audio.fluence.speaker=true\
+persist.vendor.audio.fluence.speaker=false\
 persist.vendor.audio.fluence.tmic.enabled=false
 
 ##speaker protection v3 switch and ADSP AFE API version
@@ -255,6 +255,10 @@ media.stagefright.audio.deep=false
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.dualmic.config=endfire \
     ro.config.vc_call_vol_steps=8
+
+# stereo speakers: orientation changes swap L/R channels
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.audio.monitorRotation=true
 # }}}
 
 # Bluetooth {{{
