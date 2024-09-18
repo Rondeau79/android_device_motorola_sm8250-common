@@ -64,6 +64,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    <!--
     <hal format="hidl">
         <name>android.hardware.media.omx</name>
         <transport>hwbinder</transport>
@@ -78,6 +79,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    -->
     <!-- VPP Service -->
     <hal format="hidl">
         <name>vendor.qti.hardware.vpp</name>
@@ -122,6 +124,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>wifidisplaysessionimagetrack</instance>
         </interface>
     </hal>
+    <!--
     <hal format="hidl">
         <name>android.hardware.memtrack</name>
         <transport>hwbinder</transport>
@@ -131,6 +134,7 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
+    -->
     <!-- fingerprint hal: using remote service instead of Google's default service-->
     <hal format="hidl">
         <name>android.hardware.biometrics.fingerprint</name>
@@ -522,7 +526,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>slot2</instance>
         </interface>
     </hal>
-    <!--
     <hal format="hidl">
         <name>vendor.qti.hardware.cacert</name>
         <transport>hwbinder</transport>
@@ -532,7 +535,6 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             <instance>default</instance>
         </interface>
     </hal>
-    -->
     <!-- Factory HAL service -->
     <!--
     <hal format="hidl">

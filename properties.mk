@@ -433,10 +433,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # }}}
 
 # Media {{{
-PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.omx_default_rank=0
+# Create input surface on the framework side
+PRODUCT_PROPERTY_OVERRIDES += \
+    debug.stagefright.c2inputsurface=-1
 
-#Vendor property to enable Codec2 for audio and OMX for Video
-PRODUCT_PROPERTY_OVERRIDES += debug.stagefright.ccodec=1
+# Disable OMX
+PRODUCT_PROPERTY_OVERRIDES += \
+    vendor.media.omx=0
+
+# Media Performance Class 11
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.odm.build.media_performance_class=30
 # }}}
 
 # Perf {{{
