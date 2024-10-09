@@ -59,6 +59,8 @@ vendor/lib/libqtigef.so
 vendor/lib/soundfx/libmaxxeffect-cembedded.so
 vendor/lib/soundfx/libmmieffectswrapper.so
 vendor/lib/soundfx/libspeakerbundle.so
+vendor/lib64/soundfx/libswdap.so
+vendor/lib/soundfx/libswdap.so
 
 # Audio Firmware
 vendor/firmware/aw882xx_mono.bin
