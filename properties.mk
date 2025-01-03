@@ -345,7 +345,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.sf.native_mode=1 \
     debug.sf.hw=0 \
     debug.egl.hw=0 \
-    debug.sf.latch_unsignaled=1 \
     debug.sf.high_fps_late_app_phase_offset_ns=1000000 \
     debug.mdpcomp.logs=0 \
     vendor.gralloc.disable_ubwc=0 \
@@ -363,6 +362,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_offline_rotator=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
+    debug.sf.disable_client_composition_cache=1 \
     debug.sf.enable_gl_backpressure=1 \
     debug.sf.enable_advanced_sf_phase_offset=1 \
     debug.sf.high_fps_late_sf_phase_offset_ns=-4000000 \
@@ -565,6 +565,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Enable zygote critical window.
 PRODUCT_PROPERTY_OVERRIDES += \
     zygote.critical_window.minute=10
+
+# Use FUSE passthrough
+PRODUCT_PRODUCT_PROPERTIES += \
+    persist.sys.fuse.passthrough.enable=true
 # }}}
 
 # vim:fdm=marker
