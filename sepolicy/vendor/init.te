@@ -4,6 +4,9 @@ allow init fsg_file:dir mounton;
 allow init fsg_file:filesystem { getattr mount relabelfrom unmount };
 allow init firmware_file:filesystem unmount;
 
+# debugfs
+allow init debugfs_tracing_debug:dir mounton;
+
 # Allow init to access loop devices
 allow init loop_device:blk_file { create setattr unlink };
 allowxperm init loop_device:blk_file ioctl {
@@ -21,3 +24,7 @@ recovery_only(`
   allow init self:capability sys_module;
   allow init rootfs:system module_load;
 ')
+
+# ZRAM
+allow init per_boot_file:file ioctl;
+allowxperm init per_boot_file:file ioctl { F2FS_IOC_SET_PIN_FILE };

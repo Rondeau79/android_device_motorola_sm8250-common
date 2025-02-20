@@ -52,7 +52,6 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     FrameworksResCommon_Sys \
     CarrierConfigResCommon_Sys \
-    CellBroadcastReceiverResCommon_Sys \
     SystemUIResCommon_Sys \
     TelecommResCommon_Sys \
     TelephonyResCommon_Sys \
@@ -218,31 +217,18 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.camera.postproc@1.0.vendor
 
 # Common init scripts
-PRODUCT_PACKAGES += \
-    fstab.qcom \
-    fstab.qcom.zramwb \
-    init.class_main.sh \
-    init.ets.rc \
-    init.mdm.sh \
-    init.mmi.charge_only.rc \
-    init.mmi.laser.sh \
-    init.mmi.overlay.rc \
-    init.mmi.rc \
-    init.mmi.touch.sh \
-    init.oem.fingerprint.overlay.sh \
-    init.oem.fingerprint2.sh \
-    init.oem.hw.sh \
-    init.qcom.early_boot.sh \
-    init.qcom.post_boot.sh \
-    init.qcom.rc \
-    init.qcom.sh \
-    init.qti.dcvs.sh \
-    init.recovery.qcom.rc \
-    init.target.rc \
-    ueventd.qcom.rc
-
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom::$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom.zramwb::$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom.zramwb \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
+
+$(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/etc/init/hw/*.rc),\
+        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/$(notdir $f)))
+$(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/etc/init/*.rc),\
+        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/etc/init/$(notdir $f)))
+$(foreach f,$(wildcard $(LOCAL_PATH)/rootdir/bin/*.sh),\
+        $(eval PRODUCT_COPY_FILES += $(f):$(TARGET_COPY_OUT_VENDOR)/bin/$(notdir $f)))
 
 # Dependencies
 PRODUCT_PACKAGES += \
@@ -312,16 +298,12 @@ PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1-service-qti \
     gnss@2.0-base.policy \
     gnss@2.0-xtra-daemon.policy \
-    gnss@2.0-xtwifi-client.policy \
-    gnss@2.0-xtwifi-inet-agent.policy \
     libbatching \
     libgeofencing \
     libgnss \
-    libgnsspps \
-    libsynergy_loc_api
+    libloc_socket
 
 PRODUCT_PACKAGES += \
-    apdr.conf \
     flp.conf \
     gnss_antenna_info.conf \
     gps.conf \
