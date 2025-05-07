@@ -49,6 +49,7 @@ BOARD_KERNEL_IMAGE_NAME := Image
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
+TARGET_KERNEL_CLANG_VERSION := r530567
 TARGET_KERNEL_CONFIG := \
     vendor/kona-perf_defconfig \
     vendor/ext_config/moto-kona.config
@@ -97,7 +98,6 @@ TARGET_MODULE_ALIASES += \
 # Platform
 BOARD_USES_QCOM_HARDWARE := true
 TARGET_BOARD_PLATFORM := kona
-TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
 
 # Audio
 AUDIO_FEATURE_ENABLED_DLKM := true
@@ -143,9 +143,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
 
-# Init
-TARGET_INIT_VENDOR_LIB := //$(COMMON_PATH):libinit_moto_kona
-
 # Media
 TARGET_USES_ION := true
 
@@ -179,9 +176,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
-# Power
-TARGET_POWER_LIBPERFMGR_MODE_EXTENSION_LIB := //$(COMMON_PATH):libperfmgr-ext-moto_kona
-
 # Properties
 TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 
@@ -189,7 +183,6 @@ TARGET_SYSTEM_PROP += $(COMMON_PATH)/system.prop
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-TARGET_RECOVERY_DEVICE_DIRS += $(COMMON_PATH)
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
 
 # RIL
@@ -198,7 +191,6 @@ ENABLE_VENDOR_RIL_SERVICE := true
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
-BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
 PRODUCT_PRIVATE_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/private
 PRODUCT_PUBLIC_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/public
