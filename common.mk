@@ -140,7 +140,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.atrace@1.0-service
 
-# Audio (Dobly Atmoa)
+# Audio (Dobly Atmos)
 $(call inherit-product, hardware/motorola/dolby/setup.mk)
 
 # Audio
