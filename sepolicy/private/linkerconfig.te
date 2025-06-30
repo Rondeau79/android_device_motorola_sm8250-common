@@ -1,1 +1,1 @@
-allow linkerconfig self:capability kill;
+dontaudit linkerconfig self:capability kill;
