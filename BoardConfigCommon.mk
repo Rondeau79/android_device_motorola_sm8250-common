@@ -124,9 +124,6 @@ endif
 # Display
 TARGET_GRALLOC_HANDLE_HAS_RESERVED_SIZE := true
 
-# DRM
-TARGET_ENABLE_MEDIADRM_64 := true
-
 # Filesystem
 TARGET_FS_CONFIG_GEN := \
     $(COMMON_PATH)/config.fs \
@@ -141,9 +138,6 @@ DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += \
     hardware/qcom-caf/common/vendor_framework_compatibility_matrix.xml
 DEVICE_MANIFEST_FILE := $(COMMON_PATH)/manifest.xml
 DEVICE_MATRIX_FILE := hardware/qcom-caf/common/compatibility_matrix.xml
-
-# Media
-TARGET_USES_ION := true
 
 # Partitions
 BOARD_USES_RECOVERY_AS_BOOT := true
