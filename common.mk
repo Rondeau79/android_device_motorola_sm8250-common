@@ -186,6 +186,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor
 
+#Dolby  
+$(call inherit-product, hardware/dolby/dolby.mk)  
+
 # Boot control
 PRODUCT_PACKAGES += \
     android.hardware.boot-service.qti \
