@@ -268,9 +268,6 @@ PRODUCT_PACKAGES += \
     libcrypto_shim.vendor
 
 # fastbootd
-PRODUCT_PACKAGES += \
-    fastbootd
-
 $(call soong_config_set_bool,fastbootd,zero_packet,true)
 
 # Fingerprint
@@ -323,6 +320,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.health-service.qti \
     android.hardware.health-service.qti_recovery
+
+# ION
+$(call soong_config_set_bool,libion,legacy_impl,true)
 
 # IPACM
 PRODUCT_PACKAGES += \
@@ -393,7 +393,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_SOONG_NAMESPACES += \
     hardware/google/interfaces \
-    hardware/google/pixel \
+    hardware/google/pixel/power-libperfmgr \
     hardware/lineage/interfaces/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client
 
@@ -438,10 +438,6 @@ $(call soong_config_set, MOTOROLA_TOUCH, HIGH_TOUCH_POLLING_PATH, /sys/class/tou
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/keylayout/double-tap.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/double-tap.kl
-
-# UFFD GC
-PRODUCT_ENABLE_UFFD_GC := true
-OVERRIDE_ENABLE_UFFD_GC := true
 
 # USB HAL
 PRODUCT_PACKAGES += \

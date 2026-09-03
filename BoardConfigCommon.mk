@@ -83,7 +83,6 @@ TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_CONFIG := \
     vendor/kona-perf_defconfig \
     vendor/ext_config/moto-kona.config
-TARGET_KERNEL_NO_GCC := true
 TARGET_KERNEL_SOURCE := kernel/motorola/sm8250
 
 # Kernel Modules
@@ -174,6 +173,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 
 # SELinux
 include device/qcom/sepolicy_vndr/SEPolicy.mk
+include device/lineage/sepolicy/libion/sepolicy.mk
 include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include hardware/motorola/sepolicy/qti/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(COMMON_PATH)/sepolicy/vendor
